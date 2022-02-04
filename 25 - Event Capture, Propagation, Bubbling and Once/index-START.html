@@ -40,8 +40,26 @@
   }
 </style>
 
-<button></button>
+<button>button</button>
+
 <script>
+  const divs = document.querySelectorAll('div');
+  const button = document.querySelector('button');
+
+  function logText(e) {
+    console.log(this.classList.value);
+  }
+
+  divs.forEach(div => div.addEventListener('click', logText, {
+    capture: false, //this is the default
+    once: true //makes it so you can only click on something once
+  }));
+
+  button.addEventListener('click', () => {
+    console.log('click');
+  }, {
+    once: true
+  });
 
 </script>
 </body>
